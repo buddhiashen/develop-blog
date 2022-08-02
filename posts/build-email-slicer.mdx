@@ -1,0 +1,82 @@
+---
+title: How to build an Email Slicer using Python
+description: Learn the basics of python while learning building an email slicer. Email Slicer is simply a program that requires an email id as input and performs slicing processes on it to return the username and domain of the email id.
+date: '2021-03-20'
+image: '/images/bridge.jpg'
+---
+
+<Image
+  alt={`Bridge`}
+  src={`/images/email-slicer.jpg`}
+  width={1440}
+  height={960}
+  priority
+/>
+
+## What exactly is indeed an Email Slicer?
+
+Email Slicer is simply a program that requires an email id as input and performs slicing processes on it to return the username and domain of the email id.
+
+### As an example:
+#### input: 
+
+```shell
+buddhiict@gmail.com
+```
+
+#### Output:
+```shell
+Email slicer by Buddhi ashen
+username stand for the Your username based on the given email address.
+domain means the '@gmail.com' or '@yahoo.com' or @outlook.com' based on the given email address .
+to proceed simply enter 'yes' or 'y
+to exit the programme simply enter 'no' or 'n'
+proceed to programme Y/N : y
+<<<<<<< E-mail slicer >>>>>>>>
+Want to proceed Y/N : y
+Enter an email to slice : buddiict@gmail.com
+--------------------------------
+<-- username = buddiict -->
+<-- domian = '@' gmail.com -->
+________________________________
+<<<<<<< E-mail slicer >>>>>>>>
+```
+
+Here we got ```buddhiict``` as username and ```gmail.com``` as a domain.
+
+This project is super simple and quick and it doesn't require any setup so let's quickly jump to coding and build this.
+
+## Let's Code
+So this first we are going to do is to ask the user to enter the email to be sliced.
+
+```python
+email = input("Enter Your Email: ").strip()
+```
+in here we create a variable called ```email```. after that we get a user input by using ```input``` tag. by using ```strip()``` we can remove any additional & unwanted spacing on both sides of string.
+
+## Let's move to the next step now.
+
+```python
+username = email[:email.index('@')]
+domain = email[email.index('@') + 1:]
+```
+Here we are slicing the user input to obtain the username and domain and ignore the rest.
+Let's see how it works.
+
+In case of ```username``` variable we only want to keep the part of the string which comes before ```@``` and ignore the rest.
+
+Here we are making use of slicing operator ```:``` and ```index()``` function. ```index()``` function searches for the particular element or character within the string and lists it is associated with and return its index number.
+
+Let's consider the input is ```buddhiict@gmail.com```, so when we write ```email[:email.index('@')]```i, our ```index()``` function will interpret it as email[:13] as our @ is located at index 13. Now email[:13] knows that @ is located at index 13, so now it will keep the part before index 13 and discard the rest.
+
+This exact same process is followed for ```domain``` also.
+
+
+And now finally, let's print our output.
+
+```python
+print(f"Your username is {username} & domain is {domain}")
+```
+We are making use of ```f-string```, a ```new addition to Python 3``` which allows us to directly place our variables in the output string. Feel free to make use of ```format()``` or old school ```+``` or ```,``` operators if you don't want to use ```f-string```.
+
+Go back [Home](/).

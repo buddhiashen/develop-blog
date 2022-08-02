@@ -1,0 +1,159 @@
+---
+title: 10 Python Hacks Every Developer Should Be Aware Of
+description: Python is the most searched and tagged programming language in the world, according to a recent StackOverflow survey. It has one of the most active developer communitie
+date: '2021-03-10'
+---
+
+Python is the most searched and tagged programming language in the world, according to a recent StackOverflow survey. It has one of the most active developer communities. Python is popular among beginners due to its simple syntax and simple fundamentals. It is a versatile programming language that can be used to create nearly anything in the software industry. One of the most significant advantages of Python is its one-liners and packages, which can perform any task with only a few lines of code. With so many built-in features, there are a few hacks to keep in mind when coding in Python. This blog will cover 30 Python Hacks That Every Developer Should Know.
+
+## 1. Establishing a File Sharing Server
+Python provides a very simple method for sharing files from your computer to another computer or mobile device by establishing a free online FTP server.
+
+```Python
+python -m http.server 5000
+```
+You can select a port range ranging from 0 to 65353. When the code is executed, your server will be visible at 127.0.0.1:5000.
+
+Now, on your mobile phone, open Chrome or any other browser and simply type YOUR COMPUTER IP ADDRESS:PORT NUMBER.
+
+You can obtain your IP address by typing ipconfig into your computer's terminal. The IPv4 address is shown below. If your IP address is 192.168.39.145 and your port number is 5000, the file-sharing server will be accessible at 192.168.39.145:5000.
+
+## 2. Multiple Arguments Passed Without Declaration
+In Python, you can pass any number of arguments to a function without specifying the number using *args.
+
+```python
+def add_numbers(*numbers):
+       sum = 0
+       for number in numbers:
+           sum += number
+       return sum
+print(add_numbers(5,6,233,56,3,5,2,5)) ## 315
+```
+**kwargs allows you to pass any number of keyword arguments to a function.
+
+## 3. Create List Elements Wisely
+In Python, a List is similar to an array. It is mutable, has the ability to store heterogeneous elements, and is simple to use. To add elements to an array, you must first execute a loop and then add elements one by one. In addition, if any conditionals are used, the size of the code grows. Python offers a more efficient method that combines all of the steps in a one-liner called List comprehension.
+
+```python
+
+''' creating a simple list '''
+list = []
+for i in range(10):
+    list.append(i)
+print(list) ## 0,1,2,3,4,5,6,7,8,9
+
+''' creating a list (using list comprehension)'''
+lst = [i for i in range(10)]
+print(lst) ## 0,1,2,3,4,5,6,7,8,9
+
+'''creating a list (conditionals)'''
+''' only if '''
+lst = [i**2 for i in range(1,10) if i%3==0]
+print(lst)
+```
+
+## 4. "2.0" Type Checking
+Checking the type of a variable is a task that you will repeat to gain knowledge. Python's isinstance() function returns a boolean indicating whether the given object is an instance of the specified class. It accepts two arguments: object and the class itself. It can also be used to perform standard type checking.
+
+
+<Image
+  alt={`Bridge`}
+  src={`/images/tips.jpg`}
+  width={750}
+  height={350}
+  priority
+/>
+
+## 5. Scraped Data Trimming
+When we scrape some text, a lot of unwanted text (\t, \n, \t, etc.) is scraped as well. Trimming is a method of removing unnecessary data. Python has a method called strip() that will trim all scraped data.
+
+```python
+-------------- Trimming A String ----------- 
+data = "\n\n\n \t  David's Foord and Restaurant \t \n\n\n    "
+print(data.strip())
+--o/p-----
+David's Foord and Restaurant
+--------- Trimming List of Strings ---------
+data = ["\n\n\n Burger \t   ","\n\t Pizza \t  "]
+cleaned_data = [i.strip() for i in data]
+print(cleaned_data)
+---o/p----
+["Burger","Pizza"]
+```
+## 6. The _ Operator
+In Python, a single underscore is a valid character. It is suitable for use as a variable name. According to the Python documentation, it is a special character that is used to store the result of the previous evaluation.
+
+```python
+---------- As a Variable -----------
+_ = 10
+b = 20
+sum = _+b
+print(sum)
+------
+30
+------------ Restoring The Previous Evaluation Result ------
+>>> 200+400
+600
+>>> _*5
+3000
+
+```
+## 7. Names that are shorter
+Python's extensive library is one of its most notable features. The issue arises when you have to use them repeatedly in your program because some of them have longer and less English-friendly names. The "as" keywords in Python make it easier to shorten the name of the library.
+
+```python
+## Normal Way 
+import numpy 
+import speech_recognition
+
+
+## Shorten Name
+import numpy as np
+import speech_recognition as sr
+```
+
+## 8. Professionally Iterating Multiple Lists
+When you scrape data from the web, you usually save it in a separate list. This hack allows you to print each list element that corresponds to each list element in another list.
+
+<Image
+  alt={`Bridge`}
+  src={`/images/proffesion.jpg`}
+  width={750}
+  height={350}
+  priority
+/>
+
+## 9. Taking Advantage of Slicing
+Slicing is a built-in Python feature that allows you to access specific parts of a sequence. It can also be used to add, change, or remove items from them. There are numerous examples of how slicing can be used to reduce code size.
+
+```python
+''' Checking For Palindrome '''
+name = "wow"
+print(name==name[::-1])
+-----------
+True
+''' Retriving Even Numbers From a Natural Sequence '''
+natural_numbers = [1,2,3,4,5,6,7,8,9,10]
+even_numbers = natural_numbers[1::2]
+print(even_numbers)
+-------------
+[2,4,6,8,10]
+```
+
+## 10. Using to Break Long Lines
+One of the most common causes of unreadable code is a long file address, links, or list elements.
+
+```shell
+url = 'https://medium.com/pythoneers/10-underrated-python-packages-every-data-scientist-should-know-86b4355cc35e'
+```
+
+You can change the point of wrap with the help of a backslash ```\```
+
+```shell
+url = 'https://medium.com/pythoneers/'\
+       '10-underrated-python-packages-every-'\
+       'data-scientist-should-know-86b4355cc35e'
+print(url)
+----------------
+https://medium.com/pythoneers/10-underrated-python-packages-every-data-scientist-should-know-86b4355cc35e
+```
